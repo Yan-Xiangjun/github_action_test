@@ -24,6 +24,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./dist/main/main.exe
-          asset_name: main.exe
+          asset_path: ./mydist.zip
+          asset_name: main-win.zip
           asset_content_type: application/octet-stream
