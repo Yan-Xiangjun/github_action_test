@@ -1,0 +1,29 @@
+name: Build and Upload EXE on Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: windows-2019
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v3
+
+      - name: 设置Python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: 打包
+        run: build.cmd
+
+      - name: 上传EXE到Release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./dist/main/main.exe
+          asset_name: main.exe
+          asset_content_type: application/octet-stream
