@@ -38,11 +38,9 @@ jobs:
         with:
           python-version: '3.8'
       - name: Build
-        run: cd /home/runner/work/github_action_test/github_action_test && python3 ./build.py
+        run: cd ~/work/github_action_test/github_action_test && python3 ./build.py
       - name: Upload
         uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./mydist.zip
@@ -59,11 +57,9 @@ jobs:
         with:
           python-version: '3.8'
       - name: Build
-        run: cd /Users/runner/work/github_action_test/github_action_test && python3 ./build.py
+        run: cd ~/work/github_action_test/github_action_test && python3 ./build.py
       - name: Upload
         uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./mydist.zip
