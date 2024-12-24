@@ -17,7 +17,9 @@ jobs:
           python-version: '3.8'
 
       - name: 打包
-        run: cd D:\a\github_action_test\github_action_test && python .\build.py
+        run: |
+          cd D:\a\github_action_test\github_action_test
+          python .\build.py && python -c "import shutil; shutil.make_archive('./mydist', 'zip', './dist/main')"
 
       - name: 上传EXE到Release
         uses: actions/upload-release-asset@v1
@@ -38,7 +40,9 @@ jobs:
         with:
           python-version: '3.8'
       - name: Build
-        run: cd ~/work/github_action_test/github_action_test && python3 ./build.py
+        run: |
+          cd ~/work/github_action_test/github_action_test
+          python3 ./build.py && python3 -c "import shutil; shutil.make_archive('./mydist', 'zip', './dist/main')"
       - name: Upload
         uses: actions/upload-release-asset@v1
         env:
@@ -59,7 +63,9 @@ jobs:
         with:
           python-version: '3.8'
       - name: Build
-        run: cd ~/work/github_action_test/github_action_test && python3 ./build.py
+        run: |
+          cd ~/work/github_action_test/github_action_test
+          python3 ./build.py && python3 -c "import shutil; shutil.make_archive('./mydist', 'zip', './dist/main')"
       - name: Upload
         uses: actions/upload-release-asset@v1
         env:
