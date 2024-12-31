@@ -14,7 +14,7 @@ jobs:
           echo 2
           sudo apt update
           sudo apt install xfce4 -y
-          systemctl status display-manager
+          #systemctl status display-manager
           echo 3
           sudo systemctl start display-manager
           echo 4
