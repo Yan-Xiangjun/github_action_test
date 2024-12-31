@@ -1,4 +1,4 @@
-name: Build
+name: testx
 
 on:
   workflow_dispatch:
@@ -12,6 +12,7 @@ jobs:
           echo 1
           echo $DISPLAY
           echo 2
+          sudo apt install xfce4 -y
           systemctl status display-manager
           echo 3
           systemctl start display-manager
