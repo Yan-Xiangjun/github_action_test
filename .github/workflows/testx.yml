@@ -12,9 +12,10 @@ jobs:
           echo 1
           echo $DISPLAY
           echo 2
+          sudo apt update
           sudo apt install xfce4 -y
           systemctl status display-manager
           echo 3
-          systemctl start display-manager
+          sudo systemctl start display-manager
           echo 4
           startx
