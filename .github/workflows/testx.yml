@@ -1,0 +1,19 @@
+name: Build and Upload EXE on Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: 打包
+        run: |
+          echo 1
+          echo $DISPLAY
+          echo 2
+          systemctl status display-manager
+          echo 3
+          systemctl start display-manager
+          echo 4
+          startx
