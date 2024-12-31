@@ -1,4 +1,4 @@
-name: Build and Upload EXE on Release
+name: Build
 
 on:
   workflow_dispatch:
