@@ -22,4 +22,6 @@ jobs:
           echo 5
           systemctl status display-manager
           echo 6
+          echo $DISPLAY
+          echo 7
           startx
