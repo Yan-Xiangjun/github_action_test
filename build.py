@@ -1,7 +1,7 @@
 import os
 import sys
 
-print('创建虚拟环境……')
+print('packing')
 
 py_name = 'python3' if sys.platform == 'linux' else 'python'
 os.system(f'{py_name} -m pip install -U -i https://mirrors.ustc.edu.cn/pypi/simple pip')
