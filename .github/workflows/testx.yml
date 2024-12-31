@@ -18,4 +18,8 @@ jobs:
           echo 3
           sudo systemctl start display-manager
           echo 4
+          echo $DISPLAY
+          echo 5
+          systemctl status display-manager
+          echo 6
           startx
