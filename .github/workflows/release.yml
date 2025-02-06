@@ -18,7 +18,7 @@ jobs:
 
       - name: 打包
         run: |
-          pip install py7zr torch
+          pip install py7zr
           cd D:\a\github_action_test\github_action_test
           python .\build.py 
           py7zr c ./mydist.7z ./dist/main
@@ -49,7 +49,7 @@ jobs:
           Xvfb :0 -screen 0 1024x768x24 &
           export DISPLAY=:0
           
-          pip install py7zr torch
+          pip install py7zr
           cd ~/work/github_action_test/github_action_test
           python3 ./build.py 
           py7zr c ./mydist.7z ./dist/main
