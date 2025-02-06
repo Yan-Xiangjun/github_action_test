@@ -1,0 +1,33 @@
+name: test_action-gh-release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_macos:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+      - name: Build
+        run: |
+          sudo apt update
+          sudo apt install xvfb -y
+          Xvfb :0 -screen 0 1024x768x24 &
+          export DISPLAY=:0
+          
+          pip install py7zr
+          cd ~/work/github_action_test/github_action_test
+          python3 ./build.py 
+          py7zr c ./mydist.7z ./dist/main
+
+    - name: Upload
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: ./mydist.7z  
