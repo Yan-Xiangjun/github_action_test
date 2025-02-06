@@ -53,11 +53,14 @@ jobs:
           python3 ./build.py 
           py7zr c ./mydist.7z ./dist/main
       - name: Upload
-        uses: softprops/action-gh-release@v2
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          files: ./mydist.7z
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./mydist.7z
+          asset_name: main-ubuntu-20-04.7z
+          asset_content_type: application/octet-stream
 
   build_macos:
     runs-on: macos-14
